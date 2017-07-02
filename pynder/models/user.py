@@ -86,7 +86,7 @@ class User(Model):
         return u"{n} ({a})".format(n=self.name, a=self.age)
 
     def __str__(self):
-        return str(self, encoding="utf-8")
+        return "" + self.name + ", " + str(self.age)
 
     def __repr__(self):
         return repr(self.name)
