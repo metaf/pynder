@@ -100,7 +100,9 @@ class User(Model):
         return itertools.chain.from_iterable([[processed_photo['url'] for processed_photo in photo.get("processedFiles", []) if processed_photo['width'] == int(width)] for photo in self._photos])
 
     def like(self):
-        return self._session._api.like(self.id)['match']
+        r=self._session._api.like(self.id)
+        print("Userlike: " + str(r))
+        return r['match']
 
     def superlike(self):
         return self._session._api.superlike(self.id)['match']
